@@ -48,7 +48,7 @@ public class App extends Application {
         Application.launch();
     }
 
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) throws Exception,NumberFormatException {
         String path = "Tasks";
         SaveLoadController saveLoadController = new SaveLoadController();
         TaskManager taskManager = new TaskManager(saveLoadController.load(path));
@@ -88,10 +88,17 @@ public class App extends Application {
 
             } else {
                 String str = String.valueOf(textField.getText());
-                Double d  =Double.parseDouble(str);
-                if(d>2147483647)coment.setText("Too big a number");else {
-                result.setText(task2.expandedForm(Integer.parseInt(str)));
-                    coment.setText("enter an integer");}
+                Double d;
+                try{
+                    d =Double.parseDouble(str);
+                    if(d>2147483647)coment.setText("Too big number");else if(d<0)coment.setText("the number cannot be nagative");else{
+                        result.setText(task2.expandedForm(Integer.parseInt(str)));
+                        coment.setText("enter an integer");}
+                }catch (NumberFormatException numberFormatException){
+                    coment.setText("You entered a letter");
+                }
+
+
             }
         });
         comboBox.setOnAction(t -> {
