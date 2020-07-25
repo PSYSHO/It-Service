@@ -67,8 +67,8 @@ public class App extends Application {
         AnchorPane anchorPane = new AnchorPane();
         HBox hBox = new HBox();
         VBox vBox = new VBox();
-        Label coment = new Label("Введите подстроки в виде - arp,live");
-        Label coment1 = new Label("Введите строки которые будут проверяться - sharp,alive,lively ");
+        Label coment = new Label("Enter substrings in the form - arp,live");
+        Label coment1 = new Label("Enter the lines that will be checked - sharp,alive,lively ");
         HBox input1 = new HBox(textField, coment);
         HBox input2 = new HBox(textField1, coment1);
         hBox.getChildren().addAll(execute, save, load, comboBox);
@@ -79,7 +79,7 @@ public class App extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         execute.setOnAction(e -> {
-            if (comboBox.getSelectionModel().getSelectedItem() == "Task1") {
+            if (comboBox.getSelectionModel().getSelectedItem().equals("Task1")) {
                 String[] a1 = String.valueOf(textField.getText()).split(",");
                 String[] a2 = String.valueOf(textField1.getText()).split(",");
                 task1.setA1(a1);
@@ -92,35 +92,35 @@ public class App extends Application {
             }
         });
         comboBox.setOnAction(t -> {
-            if (comboBox.getSelectionModel().getSelectedItem() == "Task2") {
+            if (comboBox.getSelectionModel().getSelectedItem().equals("Task2")) {
                 textField.setText(String.valueOf(task2.getNumb()));
                 result.setText(task2.getResult());
                 textField1.setVisible(false);
-                coment.setText("Введите целое число");
+                coment.setText("enter an integer");
                 coment1.setText("");
             } else {
                 textField1.setVisible(true);
                 textField.setText(Arrays.toString(taskManager.getTask1().getA1()).replace("[","").replace("]",""));
                 textField1.setText(Arrays.toString(taskManager.getTask1().getA2()).replace("[","").replace("]",""));
                 result.setText(Arrays.toString(taskManager.getTask1().getR()).replace("[","").replace("]",""));
-                coment.setText("Введите подстроки в виде - arp,live");
-                coment1.setText("Введите строки которые будут проверяться - sharp,alive,lively ");
+                coment.setText("Enter substrings in the form - arp,live");
+                coment1.setText("Enter the lines that will be checked - sharp,alive,lively ");
             }
         });
         load.setOnAction(l -> {
-            if (comboBox.getSelectionModel().getSelectedItem() == "Task2") {
+            if (comboBox.getSelectionModel().getSelectedItem().equals("Task2")) {
                 textField1.setVisible(false);
                 textField.setText(String.valueOf(taskManager.getTask2().getNumb()));
                 result.setText(taskManager.getTask2().getResult());
-                coment.setText("Введите целое число");
+                coment.setText("enter an integer");
                 coment1.setText("");
             } else {
                 textField1.setVisible(true);
                 textField.setText(Arrays.toString(taskManager.getTask1().getA1()).replace("[","").replace("]",""));
                 textField1.setText(Arrays.toString(taskManager.getTask1().getA2()).replace("[","").replace("]",""));
                 result.setText(Arrays.toString(taskManager.getTask1().getR()).replace("[","").replace("]",""));
-                coment.setText("Введите подстроки в виде - arp,live");
-                coment1.setText("Введите строки которые будут проверяться - sharp,alive,lively ");
+                coment.setText("Enter substrings in the form - arp,live");
+                coment1.setText("Enter the lines that will be checked - sharp,alive,lively ");
             }
         });
         save.setOnAction(s -> {
