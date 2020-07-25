@@ -88,7 +88,10 @@ public class App extends Application {
 
             } else {
                 String str = String.valueOf(textField.getText());
+                Double d  =Double.parseDouble(str);
+                if(d>2147483647)coment.setText("Too big a number");else {
                 result.setText(task2.expandedForm(Integer.parseInt(str)));
+                    coment.setText("enter an integer");}
             }
         });
         comboBox.setOnAction(t -> {
@@ -100,9 +103,9 @@ public class App extends Application {
                 coment1.setText("");
             } else {
                 textField1.setVisible(true);
-                textField.setText(Arrays.toString(taskManager.getTask1().getA1()).replace("[","").replace("]",""));
-                textField1.setText(Arrays.toString(taskManager.getTask1().getA2()).replace("[","").replace("]",""));
-                result.setText(Arrays.toString(taskManager.getTask1().getR()).replace("[","").replace("]",""));
+                textField.setText(Arrays.toString(taskManager.getTask1().getA1()).replace("[","").replace("]","").replace(" ",""));
+                textField1.setText(Arrays.toString(taskManager.getTask1().getA2()).replace("[","").replace("]","").replace(" ",""));
+                result.setText(Arrays.toString(taskManager.getTask1().getR()).replace("[","").replace("]","").replace(" ",""));
                 coment.setText("Enter substrings in the form - arp,live");
                 coment1.setText("Enter the lines that will be checked - sharp,alive,lively ");
             }
@@ -116,9 +119,9 @@ public class App extends Application {
                 coment1.setText("");
             } else {
                 textField1.setVisible(true);
-                textField.setText(Arrays.toString(taskManager.getTask1().getA1()).replace("[","").replace("]",""));
-                textField1.setText(Arrays.toString(taskManager.getTask1().getA2()).replace("[","").replace("]",""));
-                result.setText(Arrays.toString(taskManager.getTask1().getR()).replace("[","").replace("]",""));
+                textField.setText(Arrays.toString(taskManager.getTask1().getA1()).replace("[","").replace("]","").replace(" ",""));
+                textField1.setText(Arrays.toString(taskManager.getTask1().getA2()).replace("[","").replace("]","").replace(" ",""));
+                result.setText(Arrays.toString(taskManager.getTask1().getR()).replace("[","").replace("]","").replace(" ",""));
                 coment.setText("Enter substrings in the form - arp,live");
                 coment1.setText("Enter the lines that will be checked - sharp,alive,lively ");
             }
