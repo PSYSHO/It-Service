@@ -91,7 +91,7 @@ public class App extends Application {
                 Double d;
                 try{
                     d =Double.parseDouble(str);
-                    if(d>2147483647)coment.setText("Too big number");else if(d<0)coment.setText("the number cannot be nagative");else{
+                    if(d>2147483647)coment.setText("Too big number");else if(d<0)coment.setText("the number cannot be negative");else{
                         result.setText(task2.expandedForm(Integer.parseInt(str)));
                         coment.setText("enter an integer");}
                 }catch (NumberFormatException numberFormatException){
